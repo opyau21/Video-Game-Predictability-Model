@@ -4,7 +4,7 @@ from sklearn.model_selection import train_test_split
 
 
 def clean():
-    master = pd.read_csv("Games.csv", sep=',').drop(columns=['Title'])
+    master = pd.read_csv('Data/Games.csv', sep=',').drop(columns=['Title'])
     x = master.iloc[:, :-1]
     y = master.iloc[:, -1]
 
@@ -12,11 +12,11 @@ def clean():
 
     scalar = StandardScaler()
     x_train_scaled = pd.DataFrame(scalar.fit_transform(x_train))
-    x_train_scaled.to_csv('scaled_train.csv')
-    train_labels.to_csv('train_labels.csv')
+    x_train_scaled.to_csv('Data/scaled_train.csv')
+    train_labels.to_csv('Data/train_labels.csv')
 
     x_test_scaled = pd.DataFrame(scalar.fit_transform(x_test))
-    x_test_scaled.to_csv('scaled_test.csv')
-    test_labels.to_csv('test_labels.csv')
+    x_test_scaled.to_csv('Data/scaled_test.csv')
+    test_labels.to_csv('Data/test_labels.csv')
 
 

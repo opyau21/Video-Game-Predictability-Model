@@ -9,9 +9,8 @@ import keras
 def Logistic_Regression(x_train, y_train, x_test, y_test):
     tf.random.set_seed(100)
     model = tf.keras.Sequential([
-        tf.keras.layers.Dense(16, activation='relu'),
-        tf.keras.layers.Dense(32, activation='relu'),
-        tf.keras.layers.Dense(32, activation='relu'),
+        tf.keras.layers.Dense(28, activation='relu'),
+        tf.keras.layers.Dense(14, activation='relu'),
         tf.keras.layers.Dense(1, activation='sigmoid')
     ])
 
@@ -23,7 +22,7 @@ def Logistic_Regression(x_train, y_train, x_test, y_test):
                         tf.keras.metrics.Recall(name='recall')
                     ]
                 )
-    model.fit(x_train, y_train, epochs=5)
+    model.fit(x_train, y_train, epochs=12)
 
     loss_and_metrics = model.evaluate(x_test, y_test)
     print(loss_and_metrics)
